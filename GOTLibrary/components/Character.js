@@ -1,6 +1,6 @@
 import { View, Image, Text } from "react-native";
 
-export default function Character() {
+export default function Character({ cName, cImg }) {
   return (
     <View
       style={{
@@ -14,7 +14,7 @@ export default function Character() {
       }}
     >
       <Image
-        source={require("../placeholder.jpg")}
+        source={{ uri: cImg }}
         style={{ width: 150, height: 100, marginRight: 15 }}
       />
       <Text
@@ -23,7 +23,7 @@ export default function Character() {
           marginLeft: 20,
         }}
       >
-        Character Name
+        {cName}
       </Text>
     </View>
   );

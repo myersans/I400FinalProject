@@ -1,7 +1,7 @@
 import { View, Image, Text } from "react-native";
 import Character from "./Character.js";
 
-export default function CharacterCard() {
+export default function CharacterCard({ cName, cImg, cTitle, cFamily }) {
   return (
     <View
       style={{
@@ -37,11 +37,11 @@ export default function CharacterCard() {
           }}
         >
           <Image
-            source={require("../placeholder.jpg")}
+            source={require("../images/placeholder.jpg")}
             style={{ width: 150, height: 150 }}
           />
           <Image
-            source={require("../housePlaceholder.jpg")}
+            source={require("../images/housePlaceholder.jpg")}
             style={{ width: 150, height: 150 }}
           />
         </View>
@@ -54,7 +54,7 @@ export default function CharacterCard() {
         }}
       >
         <Text>Title:</Text>
-        <Text> Title goes here</Text>
+        <Text>Title goes here</Text>
         <Text>Family:</Text>
         <Text>House name goes here</Text>
         <Text>Bio:</Text>

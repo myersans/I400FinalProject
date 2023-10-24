@@ -1,62 +1,18 @@
 import { StyleSheet, Text, View, ScrollView } from "react-native";
 import MainLibrary from "./MainLibrary.js";
-
-// characterList = [
-//   <Character />,
-//   <Character />,
-//   <Character />,
-//   <Character />,
-//   <Character />,
-//   <Character />,
-//   <Character />,
-//   <Character />,
-//   <Character />,
-//   <Character />,
-//   <Character />,
-//   <Character />,
-//   <Character />,
-//   <Character />,
-// ];
+import Home from "./Home.js";
+import * as React from "react";
+import { NavigationContainer } from "@react-navigation/native";
+import { createStackNavigator } from "@react-navigation/stack";
 
 export default function App() {
+  const Stack = createStackNavigator();
   return (
-    <MainLibrary />
-    // <ScrollView contentContainerStyle={styles.container}>
-    //   <View
-    //     style={{
-    //       width: 400,
-    //       height: 100,
-    //       backgroundColor: "pink",
-    //       flexDirection: "row",
-    //       alignItems: "center",
-    //       justifyContent: "space-evenly",
-    //       borderRadius: 20,
-    //       padding: 5,
-    //       margnBottom: 5,
-    //       marginTop: 10,
-    //     }}
-    //   >
-    //     <Text>Search Bar</Text>
-    //     <Text>Filter</Text>
-    //   </View>
-    //   <ScrollView
-    //     style={{
-    //       width: 400,
-    //       height: 400,
-    //     }}
-    //   >
-    //     {characterList}
-    //   </ScrollView>
-    //   {/* <CharacterCard /> */}
-    // </ScrollView>
+    <NavigationContainer>
+      <Stack.Navigator initialRouteName="Home">
+        <Stack.Screen name="Home" component={Home} />
+        <Stack.Screen name="MainLibrary" component={MainLibrary} />
+      </Stack.Navigator>
+    </NavigationContainer>
   );
 }
-
-// const styles = StyleSheet.create({
-//   container: {
-//     flex: 1,
-//     backgroundColor: "#3B2B73",
-//     alignItems: "center",
-//     justifyContent: "center",
-//   },
-// });
