@@ -2,7 +2,7 @@ import { StyleSheet, Text, View, ScrollView } from "react-native";
 import Character from "./components/Character.js";
 import CharacterCard from "./components/CharacterCard.js";
 // import { SearchBar } from "react-native-elements";
-import axios, { all } from "axios";
+// import axios, { all } from "axios";
 
 // async function getAllCharacters() {
 //   const requestURL = "https://thronesapi.com/api/v2/Characters";
@@ -28,16 +28,16 @@ let characterList = [];
 //   characterList.push(newCharacter);
 // }
 
-for (let i = 0; i < allCharacters.length; i++) {
-  let newCharacter = (
-    <Character
-      cName={allCharacters[i].fullName}
-      cImg={allCharacters[i].imageUrl}
-    />
-  );
-  characterList.push(newCharacter);
-}
-console.log(characterList);
+// for (let i = 0; i < allCharacters.length; i++) {
+//   let newCharacter = (
+//     <Character
+//       cName={allCharacters[i].fullName}
+//       cImg={allCharacters[i].imageUrl}
+//     />
+//   );
+//   characterList.push(newCharacter);
+// }
+// console.log(characterList);
 
 export default function MainLibrary() {
   // state = {
@@ -74,6 +74,12 @@ export default function MainLibrary() {
         /> */}
         <Text>Search Bar</Text>
         <Text>Filter</Text>
+      </View>
+      <View>
+        <Character
+          cName={allCharacters[0].fullName}
+          cImg={allCharacters[0].imageUrl}
+        />
       </View>
       <ScrollView
         style={{
