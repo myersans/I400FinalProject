@@ -18,7 +18,7 @@ export default function CharacterCard({ cName, cImg, cTitle, cFamily }) {
             textAlign: "center",
           }}
         >
-          Character Name
+          {cName}
         </Text>
       </View>
       <View
@@ -28,7 +28,7 @@ export default function CharacterCard({ cName, cImg, cTitle, cFamily }) {
           alignItems: "center",
         }}
       >
-        <Text>Below is the image of the character and their house logo</Text>
+        <Text>Below is the image of the character</Text>
         <View
           style={{
             justifyContent: "center",
@@ -36,14 +36,7 @@ export default function CharacterCard({ cName, cImg, cTitle, cFamily }) {
             flexDirection: "row",
           }}
         >
-          <Image
-            source={require("../images/placeholder.jpg")}
-            style={{ width: 150, height: 150 }}
-          />
-          <Image
-            source={require("../images/housePlaceholder.jpg")}
-            style={{ width: 150, height: 150 }}
-          />
+          <Image source={{ uri: cImg }} style={{ width: 150, height: 150 }} />
         </View>
       </View>
       <View
@@ -54,11 +47,9 @@ export default function CharacterCard({ cName, cImg, cTitle, cFamily }) {
         }}
       >
         <Text>Title:</Text>
-        <Text>Title goes here</Text>
+        <Text>{cTitle}</Text>
         <Text>Family:</Text>
-        <Text>House name goes here</Text>
-        <Text>Bio:</Text>
-        <Text>Brief bio goes here</Text>
+        <Text>{cFamily}</Text>
       </View>
     </View>
   );

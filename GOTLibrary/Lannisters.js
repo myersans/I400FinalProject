@@ -1,186 +1,17 @@
-import { StyleSheet, Text, View, ScrollView, Button } from "react-native";
+import {
+  StyleSheet,
+  Text,
+  View,
+  ScrollView,
+  Image,
+  Button,
+} from "react-native";
 import Character from "./components/Character.js";
-import CharacterCard from "./components/CharacterCard.js";
-import { all } from "axios";
-import { SelectList } from "react-native-dropdown-select-list";
-import { useState } from "react";
-// import axios, { all } from "axios";
 
-// async function getAllCharacters() {
-//   const requestURL = "https://thronesapi.com/api/v2/Characters";
-//   try {
-//     // const response = await axios.get(requestURL);
-//     const response = await fetch(requestURL);
-//     const data = await response.json();
-//     console.log(data);
-//     return data;
-//   } catch {
-//     console.log("penguin");
-//   }
-// }
-
-async function getResponse() {
-  const response = await fetch(
-    "https://game-of-thrones1.p.rapidapi.com/Characters",
-    {
-      method: "GET",
-      headers: {
-        "x-rapidapi-host": "game-of-thrones1.p.rapidapi.com",
-        "x-rapidapi-key": "1ad6a74ebemsh779b8e1b167a1a3p19d314jsn30f21d8f9ecf",
-      },
-    }
-  );
-  if (!response.ok) {
-    throw new Error(`HTTP error! status: ${response.status}`);
-  }
-  const data = await response.json();
-  console.log(data);
-  return data;
-}
-let characterList = [];
-
-// for (let i = 0; i < data.length; i++) {
-//   let newCharacter = (
-//     <Character cName={data[i].fullName} cImg={data[i].imageUrl} />
-//   );
-//   console.log(newCharacter);
-//   characterList.push(newCharacter);
-// }
-
-// async function getAllCharacters() {
-//   const url = "https://game-of-thrones1.p.rapidapi.com/Characters";
-//   const options = {
-//     method: "GET",
-//     headers: {
-//       "X-RapidAPI-Key": "1ad6a74ebemsh779b8e1b167a1a3p19d314jsn30f21d8f9ecf",
-//       "X-RapidAPI-Host": "game-of-thrones1.p.rapidapi.com",
-//     },
-//   };
-
-//   try {
-//     const response = await fetch(url, options);
-//     const result = await response.text();
-//     console.log(result);
-//   } catch (error) {
-//     console.error(error);
-//     console.log("object");
-//   }
-// }
-
-// const allTheCharacters = await getAllCharacters();
-// console.log(allTheCharacters);
-
-export default function MainLibrary({ navigation }) {
-  const [selected, setSelected] = useState("");
-  const options = [
-    { key: 1, value: "Starks" },
-    { key: 2, value: "Baratheons" },
-    { key: 3, value: "Lannisters" },
-  ];
+export default function Lannisters({ navigation }) {
   return (
     <ScrollView contentContainerStyle={styles.container}>
-      <View
-        style={{
-          width: 400,
-          height: 150,
-          backgroundColor: "skyblue",
-          flexDirection: "column",
-          justifyContent: "center",
-          // alignItems: "center",
-          borderRadius: 20,
-          margnBottom: 5,
-          marginTop: 10,
-          borderWidth: 5,
-          borderColor: "white",
-          marginBottom: 5,
-          padding: 10,
-        }}
-      >
-        <SelectList
-          boxStyles={{
-            borderWidth: 3,
-            borderColor: "black",
-            marginTop: 5,
-          }}
-          dropdownStyles={{
-            borderWidth: 3,
-            borderColor: "white",
-            backgroundColor: "#3B2B73",
-            marginBottom: 10,
-            height: 80,
-          }}
-          dropdownItemStyles={{
-            borderWidth: 1,
-            borderColor: "white",
-            height: 35,
-          }}
-          dropdownTextStyles={{ color: "white", fontSize: 15 }}
-          setSelected={(val) => setSelected(val)}
-          onSelect={() => navigation.navigate(selected)}
-          data={options}
-          save="value"
-          placeholder="Filter Options"
-          maxHeight={150}
-        ></SelectList>
-        {/* <Text
-          onPress={() => {
-            navigation.navigate("Starks");
-          }}
-        >
-          Starks
-        </Text>
-        <Text
-          onPress={() => {
-            navigation.navigate("Baratheons");
-          }}
-        >
-          Baratheons
-        </Text>
-        <Text
-          onPress={() => {
-            navigation.navigate("Lannisters");
-          }}
-        >
-          Lannisters
-        </Text> */}
-      </View>
-      <ScrollView style={{ height: 500 }}>
-        <Character
-          cName={allCharacters[0].fullName}
-          cImg={allCharacters[0].imageUrl}
-          // onPress={() => {
-          //   navigation.navigate("Starks");
-          //   console.log("test");
-          // }}
-        />
-        <Character
-          cName={allCharacters[1].fullName}
-          cImg={allCharacters[1].imageUrl}
-        />
-        <Character
-          cName={allCharacters[2].fullName}
-          cImg={allCharacters[2].imageUrl}
-        />
-        <Character
-          cName={allCharacters[3].fullName}
-          cImg={allCharacters[3].imageUrl}
-        />
-        <Character
-          cName={allCharacters[4].fullName}
-          cImg={allCharacters[4].imageUrl}
-        />
-        <Character
-          cName={allCharacters[5].fullName}
-          cImg={allCharacters[5].imageUrl}
-        />
-        <Character
-          cName={allCharacters[6].fullName}
-          cImg={allCharacters[6].imageUrl}
-        />
-        <Character
-          cName={allCharacters[7].fullName}
-          cImg={allCharacters[7].imageUrl}
-        />
+      <ScrollView>
         <Character
           cName={allCharacters[8].fullName}
           cImg={allCharacters[8].imageUrl}
@@ -188,18 +19,6 @@ export default function MainLibrary({ navigation }) {
         <Character
           cName={allCharacters[9].fullName}
           cImg={allCharacters[9].imageUrl}
-        />
-        <Character
-          cName={allCharacters[10].fullName}
-          cImg={allCharacters[10].imageUrl}
-        />
-        <Character
-          cName={allCharacters[11].fullName}
-          cImg={allCharacters[11].imageUrl}
-        />
-        <Character
-          cName={allCharacters[12].fullName}
-          cImg={allCharacters[12].imageUrl}
         />
         <Character
           cName={allCharacters[13].fullName}
@@ -210,162 +29,10 @@ export default function MainLibrary({ navigation }) {
           cImg={allCharacters[14].imageUrl}
         />
         <Character
-          cName={allCharacters[15].fullName}
-          cImg={allCharacters[15].imageUrl}
-        />
-        <Character
-          cName={allCharacters[16].fullName}
-          cImg={allCharacters[16].imageUrl}
-        />
-        <Character
-          cName={allCharacters[17].fullName}
-          cImg={allCharacters[17].imageUrl}
-        />
-        <Character
-          cName={allCharacters[18].fullName}
-          cImg={allCharacters[18].imageUrl}
-        />
-        <Character
-          cName={allCharacters[19].fullName}
-          cImg={allCharacters[19].imageUrl}
-        />
-        <Character
-          cName={allCharacters[20].fullName}
-          cImg={allCharacters[20].imageUrl}
-        />
-        <Character
-          cName={allCharacters[21].fullName}
-          cImg={allCharacters[21].imageUrl}
-        />
-        <Character
-          cName={allCharacters[22].fullName}
-          cImg={allCharacters[22].imageUrl}
-        />
-        <Character
-          cName={allCharacters[23].fullName}
-          cImg={allCharacters[23].imageUrl}
-        />
-        <Character
-          cName={allCharacters[24].fullName}
-          cImg={allCharacters[24].imageUrl}
-        />
-        <Character
-          cName={allCharacters[25].fullName}
-          cImg={allCharacters[25].imageUrl}
-        />
-        <Character
-          cName={allCharacters[26].fullName}
-          cImg={allCharacters[26].imageUrl}
-        />
-        <Character
-          cName={allCharacters[27].fullName}
-          cImg={allCharacters[27].imageUrl}
-        />
-        <Character
-          cName={allCharacters[28].fullName}
-          cImg={allCharacters[28].imageUrl}
-        />
-        <Character
-          cName={allCharacters[29].fullName}
-          cImg={allCharacters[29].imageUrl}
-        />
-        <Character
-          cName={allCharacters[30].fullName}
-          cImg={allCharacters[30].imageUrl}
-        />
-        <Character
-          cName={allCharacters[31].fullName}
-          cImg={allCharacters[31].imageUrl}
-        />
-        <Character
-          cName={allCharacters[32].fullName}
-          cImg={allCharacters[32].imageUrl}
-        />
-        <Character
-          cName={allCharacters[33].fullName}
-          cImg={allCharacters[33].imageUrl}
-        />
-        <Character
-          cName={allCharacters[35].fullName}
-          cImg={allCharacters[35].imageUrl}
-        />
-        <Character
-          cName={allCharacters[36].fullName}
-          cImg={allCharacters[36].imageUrl}
-        />
-        <Character
-          cName={allCharacters[37].fullName}
-          cImg={allCharacters[37].imageUrl}
-        />
-        <Character
-          cName={allCharacters[38].fullName}
-          cImg={allCharacters[38].imageUrl}
-        />
-        <Character
-          cName={allCharacters[39].fullName}
-          cImg={allCharacters[39].imageUrl}
-        />
-        <Character
-          cName={allCharacters[40].fullName}
-          cImg={allCharacters[40].imageUrl}
-        />
-        <Character
-          cName={allCharacters[41].fullName}
-          cImg={allCharacters[41].imageUrl}
-        />
-        <Character
           cName={allCharacters[42].fullName}
           cImg={allCharacters[42].imageUrl}
         />
-        <Character
-          cName={allCharacters[43].fullName}
-          cImg={allCharacters[43].imageUrl}
-        />
-        <Character
-          cName={allCharacters[44].fullName}
-          cImg={allCharacters[44].imageUrl}
-        />
-        <Character
-          cName={allCharacters[45].fullName}
-          cImg={allCharacters[45].imageUrl}
-        />
-        <Character
-          cName={allCharacters[46].fullName}
-          cImg={allCharacters[46].imageUrl}
-        />
-        <Character
-          cName={allCharacters[47].fullName}
-          cImg={allCharacters[47].imageUrl}
-        />
-        <Character
-          cName={allCharacters[48].fullName}
-          cImg={allCharacters[48].imageUrl}
-        />
-        <Character
-          cName={allCharacters[49].fullName}
-          cImg={allCharacters[49].imageUrl}
-        />
-        <Character
-          cName={allCharacters[50].fullName}
-          cImg={allCharacters[50].imageUrl}
-        />
-        <Character
-          cName={allCharacters[51].fullName}
-          cImg={allCharacters[51].imageUrl}
-        />
-        <Character
-          cName={allCharacters[52].fullName}
-          cImg={allCharacters[52].imageUrl}
-        />
       </ScrollView>
-      {/* <ScrollView
-        style={{
-          width: 400,
-          height: 75,
-        }}
-      >
-        {characterList}
-      </ScrollView> */}
     </ScrollView>
   );
 }
@@ -373,16 +40,11 @@ export default function MainLibrary({ navigation }) {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: "#3B2B73",
+    backgroundColor: "#374E8D",
     alignItems: "center",
     justifyContent: "center",
   },
 });
-
-// filter functions
-function getStarks({ navigation }) {
-  navigation.navigate("Starks");
-}
 
 const allCharacters = [
   {

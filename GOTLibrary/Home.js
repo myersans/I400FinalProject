@@ -10,12 +10,45 @@ import {
 export default function Home({ navigation }) {
   return (
     <View style={styles.container}>
-      <Image
+      {/* <Image
         source={require("./images/AppTitle.png")}
         style={{
           width: 350,
         }}
-      />
+      /> */}
+      <View
+        style={{
+          justifyContent: "center",
+          alignItems: "center",
+          marginBottom: 50,
+        }}
+      >
+        <Text
+          style={{
+            fontSize: 50,
+            color: "gray",
+          }}
+        >
+          Encyclopedia
+        </Text>
+        <Text
+          style={{
+            fontSize: 50,
+            color: "silver",
+          }}
+        >
+          Of
+        </Text>
+        <Text
+          style={{
+            fontSize: 50,
+            color: "white",
+          }}
+        >
+          Thrones
+        </Text>
+      </View>
+
       <Button
         title="Open Library"
         onPress={() => {
