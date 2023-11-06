@@ -56,7 +56,7 @@ export default function Starks({ navigation }) {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: "#374E8D",
+    backgroundColor: "#3B2B73",
     alignItems: "center",
     justifyContent: "center",
   },

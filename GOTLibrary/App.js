@@ -7,6 +7,7 @@ import { createStackNavigator } from "@react-navigation/stack";
 import Starks from "./Starks.js";
 import Baratheons from "./Baratheons.js";
 import Lannisters from "./Lannisters.js";
+import CharacterInfo from "./CharacterInfo.js";
 
 export default function App() {
   const Stack = createStackNavigator();
@@ -18,6 +19,7 @@ export default function App() {
         <Stack.Screen name="Starks" component={Starks} />
         <Stack.Screen name="Baratheons" component={Baratheons} />
         <Stack.Screen name="Lannisters" component={Lannisters} />
+        <Stack.Screen name="CharacterInfo" component={CharacterInfo} />
       </Stack.Navigator>
     </NavigationContainer>
   );

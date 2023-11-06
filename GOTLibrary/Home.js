@@ -10,12 +10,6 @@ import {
 export default function Home({ navigation }) {
   return (
     <View style={styles.container}>
-      {/* <Image
-        source={require("./images/AppTitle.png")}
-        style={{
-          width: 350,
-        }}
-      /> */}
       <View
         style={{
           justifyContent: "center",
