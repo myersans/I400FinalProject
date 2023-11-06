@@ -6,7 +6,7 @@ import {
   Image,
   Button,
 } from "react-native";
-import Character from "./components/Character.js";
+
 import CharacterCard from "./components/CharacterCard.js";
 import { useRoute } from "@react-navigation/native";
 
@@ -16,6 +16,7 @@ export default function CharacterInfo({ navigation }) {
   const cImg = route.params.cImg;
   const cTitle = route.params.cTitle;
   const cFamily = route.params.cFamily;
+
   return (
     <View style={styles.container}>
       <CharacterCard

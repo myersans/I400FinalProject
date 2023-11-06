@@ -1,5 +1,4 @@
 import { View, Image, Text } from "react-native";
-import Character from "./Character.js";
 
 export default function CharacterCard({ cName, cImg, cTitle, cFamily }) {
   return (

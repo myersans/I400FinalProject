@@ -11,71 +11,25 @@ import CharacterCard from "./components/CharacterCard.js";
 import { all } from "axios";
 import { SelectList } from "react-native-dropdown-select-list";
 import { useState } from "react";
-// import axios, { all } from "axios";
 
-// async function getAllCharacters() {
-//   const requestURL = "https://thronesapi.com/api/v2/Characters";
-//   try {
-//     // const response = await axios.get(requestURL);
-//     const response = await fetch(requestURL);
-//     const data = await response.json();
-//     console.log(data);
-//     return data;
-//   } catch {
-//     console.log("penguin");
-//   }
-// }
-
-async function getResponse() {
-  const response = await fetch(
-    "https://game-of-thrones1.p.rapidapi.com/Characters",
-    {
-      method: "GET",
-      headers: {
-        "x-rapidapi-host": "game-of-thrones1.p.rapidapi.com",
-        "x-rapidapi-key": "1ad6a74ebemsh779b8e1b167a1a3p19d314jsn30f21d8f9ecf",
-      },
-    }
-  );
-  if (!response.ok) {
-    throw new Error(`HTTP error! status: ${response.status}`);
-  }
-  const data = await response.json();
-  console.log(data);
-  return data;
-}
-let characterList = [];
-
-// for (let i = 0; i < data.length; i++) {
-//   let newCharacter = (
-//     <Character cName={data[i].fullName} cImg={data[i].imageUrl} />
+// async function getResponse() {
+//   const response = await fetch(
+//     "https://game-of-thrones1.p.rapidapi.com/Characters",
+//     {
+//       method: "GET",
+//       headers: {
+//         "x-rapidapi-host": "game-of-thrones1.p.rapidapi.com",
+//         "x-rapidapi-key": "1ad6a74ebemsh779b8e1b167a1a3p19d314jsn30f21d8f9ecf",
+//       },
+//     }
 //   );
-//   console.log(newCharacter);
-//   characterList.push(newCharacter);
-// }
-
-// async function getAllCharacters() {
-//   const url = "https://game-of-thrones1.p.rapidapi.com/Characters";
-//   const options = {
-//     method: "GET",
-//     headers: {
-//       "X-RapidAPI-Key": "1ad6a74ebemsh779b8e1b167a1a3p19d314jsn30f21d8f9ecf",
-//       "X-RapidAPI-Host": "game-of-thrones1.p.rapidapi.com",
-//     },
-//   };
-
-//   try {
-//     const response = await fetch(url, options);
-//     const result = await response.text();
-//     console.log(result);
-//   } catch (error) {
-//     console.error(error);
-//     console.log("object");
+//   if (!response.ok) {
+//     throw new Error(`HTTP error! status: ${response.status}`);
 //   }
+//   const data = await response.json();
+//   console.log(data);
+//   return data;
 // }
-
-// const allTheCharacters = await getAllCharacters();
-// console.log(allTheCharacters);
 
 export default function MainLibrary({ navigation }) {
   const [selected, setSelected] = useState("");
@@ -83,6 +37,7 @@ export default function MainLibrary({ navigation }) {
     { key: 1, value: "Starks" },
     { key: 2, value: "Baratheons" },
     { key: 3, value: "Lannisters" },
+    { key: 4, value: "Favorites" },
   ];
   return (
     <ScrollView contentContainerStyle={styles.container}>
