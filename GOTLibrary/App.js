@@ -21,7 +21,7 @@ export default function App() {
         <Stack.Screen name="Baratheons" component={Baratheons} />
         <Stack.Screen name="Lannisters" component={Lannisters} />
         <Stack.Screen name="CharacterInfo" component={CharacterInfo} />
-        <Stack.Screen name="Favorites" component={Favorites} />
+        {/* <Stack.Screen name="Favorites" component={Favorites} /> */}
       </Stack.Navigator>
     </NavigationContainer>
   );

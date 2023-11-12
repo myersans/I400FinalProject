@@ -89,10 +89,10 @@ export default function Character({ cName, cImg }) {
   );
 }
 
-function getFavList() {
-  return favList;
-}
+// function getFavList() {
+//   return favList;
+// }
 
-module.exports = {
-  getFavList: getFavList,
-};
+// module.exports = {
+//   getFavList: getFavList,
+// };
